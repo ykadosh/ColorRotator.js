@@ -1,2 +1,2 @@
 # color-rotator
-A jQuery plugin for rotating colors of various CSS properties
+A jQuery plugin for automatic color rotation in various CSS properties

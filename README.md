@@ -1,5 +1,6 @@
 # color-rotator
-This plugin uses CSS3 transitions to smoothly animate various CSS color properties (i.e. background color, text color, shadow color etc.) subject to a delay. Given a list of colors (in any format acceptible to CSS), the plugin will transition between the colors one or more times, depending on the settings.
+This plugin uses CSS3 transitions to smoothly animate various CSS color properties (i.e. background color, text color, shadow color etc.) subject to a delay. 
+Given a list of colors (in any format acceptible to CSS), the plugin will transition between the colors once or infinitely many times, depending on the settings.
 ## Example
 
 ```javascript

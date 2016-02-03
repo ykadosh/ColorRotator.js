@@ -21,7 +21,148 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <p>asd</p>
+                    <div class="example">
+                        <h2>Examples</h2>
+                        <p><strong>ColorRotator.js</strong> is a jQuery plugin that uses <strong>CSS3 transitions</strong> to smoothly animate various CSS color properties (i.e. background color, text color, shadow color etc.) subject to a delay. 
+                            Given a list of colors (in any format acceptable to CSS), the plugin will transition between the colors once or infinitely many times, depending on the settings.
+                            <br/>Here are a few example of what you can do with it:
+                        </p>
+                        <div class="row top-20">
+                            <div class="col-md-4">
+                                <div class="demo-box">
+                                    <h3><span>Background Color</span></h3>
+                                    <div class="height-100" id="bg-color-rotator"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="demo-box">
+                                    <h3><span>Shadow Color</span></h3>
+                                    <div class="height-50 inner-shadow" id="shadow-color-rotator"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="demo-box">
+                                    <h3><span>Text Color</span></h3>
+                                    <div class="height-100 text-100" id="text-color-rotator">Hello, World!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row top-20">
+                            <div class="col-md-6">
+                                <div class="demo-box">
+                                    <h3><span>Navigation Example</span></h3>
+                                    <ul id="color-rotating-navigation">
+                                        <li><a href="#">Home</a></li>
+                                        <li><a href="#">Our Work</a></li>
+                                        <li><a href="#">The Team</a></li>
+                                        <li><a href="#">Blog</a></li>
+                                        <li><a href="#">About</a></li>
+                                    </ul>
+                                    <i class="text-muted">Different hover effect every time!</i>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="demo-box">
+                                    <h3><span>Color Range Example</span></h3>
+                                    <div class="" id="color-range"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="example">
+                        <h2>Colors</h2>
+                        <p>The <code>color</code> option takes an array of colors in any type supported by CSS (Hex, RGB, RGBA, HSL, HSLA or predefined names), or an object specifying a range.</p>
+                        <p></p>
+<pre class="lang-javascript"><code class="javascript">// Colors array
+$('#element').colorRotator({
+    colors ['#1abc9c','#16a085','#2ecc71','#27ae60'],
+    property: 'background'
+});
+
+// Color range
+$('#element').colorRotator({
+    colors: {
+        
+        // Only RGB and hexadecimal colors are 
+        // supported here
+        from: 'rgb(52, 152, 219)',
+        to: 'rgb(211, 84, 0)',
+        
+        // The number of colors to generate 
+        // within the given range
+        count: 16 
+    },
+    property: 'background'
+});</code></pre>
+                    </div>
+                    <div class="example">
+                        <h2>Easing</h2>
+                        <p>The <code>easing</code> option takes a string with one of the CSS3 supported easing functions (see <a href="http://www.w3schools.com/cssref/css3_pr_transition-timing-function.asp">transition-timinig-function</a>).</p>
+                        <p></p>
+<pre class="lang-javascript"><code class="javascript">$('#element').colorRotator({
+    colors: [...],
+    easing: 'linear'
+});</code></pre>
+                    </div>
+                    <div class="example">
+                        <h2>Random</h2>
+                        <p>The <code>random</code> option takes a boolean value. If <code>random</code> is set to true, the colors will be picked randomly from the color pool.</p>
+                        <p></p>
+<pre class="lang-javascript"><code class="javascript">$('#element').colorRotator({
+    colors: [...],
+    random: true
+});</code></pre>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="example">
+                        <h2>Property</h2>
+                        <p>The <code>property</code> option takes a string with one or more properties, separated by space. The color of the given property will change according to the given colors. Supported properties:</p>
+                        <ul>
+                            <li><code>background</code> - Changes the background color</li>
+                            <li><code>shadow</code> - Changes the box-shadow color</li>
+                            <li><code>text</code> - Changes the font color</li>
+                        </ul>
+                        <p></p>
+<pre class="lang-javascript"><code class="javascript">$('#element').colorRotator({
+    colors: [...],
+    property: 'background text'
+});</code></pre>
+                    </div>
+                    <div class="example">
+                        <h2>Delay</h2>
+                        <p>The <code>delay</code> option represents the number of milliseconds between each transition.</p>
+                        <p></p>
+<pre class="lang-javascript"><code class="javascript">$('#element').colorRotator({
+    colors: [...],
+    delay: 1200
+});</code></pre>
+                    </div>
+                    <div class="example">
+                        <h2>Methods</h2>
+                        <p>There are a few methods that can be called after the initial <code>colorRotator()</code> call:</p>
+                        <ul>
+                            <li><code>'stop'</code> - Stops the color rotation</li>
+                            <li><code>'start'</code> - Continues the color rotation if it was stopped</li>
+                            <li><code>'update'</code> - Updates the options with new values</li>
+                            <li><code>'colors'</code> - Calls a function that takes the colors array as an argument</li>
+                        </ul>
+                        <p></p>
+<pre class="lang-javascript"><code class="javascript">// Stop the color rotation
+$('#element').colorRotator('stop');
+
+// Update options
+$('#element').colorRotator('update', {/* new options */});
+
+// Get the colors array
+$('#element').colorRotator('colors',function(colors){
+    // Do something with the 'colors' array
+});</code></pre>
+                    </div>
                 </div>
             </div>
         </div>

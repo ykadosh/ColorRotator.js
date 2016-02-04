@@ -77,3 +77,26 @@ $('#element').colorRotator({
     easing: 'linear'
 });
 ```
+## Available Methods
+#### start()
+Continues the color rotation if it was stopped.
+```javascript
+$('#element').colorRotator('start');
+```
+#### stop()
+Stops the color rotation.
+```javascript
+$('#element').colorRotator('stop');
+```
+#### update()
+Updates the options with new values.
+```javascript
+$('#element').colorRotator('update', {/* new options */});
+```
+#### colors()
+Calls a function that takes the colors array as an argument.
+```javascript
+$('#element').colorRotator('colors',function(colors){
+    // Do something with the 'colors' array
+});
+```

@@ -1,5 +1,20 @@
+/**
+ * Package: ColorRotator
+ * URL:     http://products.askupasoftware.com/color-rotator/
+ * Version: 1.0.0
+ * Date:    2016-02-04
+ * License: GNU GENERAL PUBLIC LICENSE
+ *
+ * Developed by Askupa Software http://www.askupasoftware.com
+ */
 (function ( $ ) {
     
+    /**
+     * The constructor
+     * 
+     * @param {DOMElement} selection
+     * @param {object} options
+     */
     function ColorRotator( selection, options )
     {
         this.setOptions( options );
@@ -16,6 +31,10 @@
         easing:     'linear'
     };
     
+    /**
+     * Plugin's methods. 
+     * In all methods, the 'this' keyword is pointing to the calling instance of ColorRotator.
+     */
     ColorRotator.methods = {
         start: function(){
             this.start();
@@ -36,19 +55,27 @@
         }
     };
     
+    /**
+     * Check if a given string represents a supported method
+     * @param {string} method
+     */
     ColorRotator.methodExists = function( method )
     {
         return typeof method === 'string' && ColorRotator.methods[method];
     };
     
+    /**
+     * Set or update this instance's options.
+     * @param {object} options
+     */
     ColorRotator.prototype.setOptions = function( options ) 
     {
-        
+        // If options were already set, update them
         if( typeof this.settings !== 'undefined' )
         {
-            // If options were already set, update them
             this.settings = $.extend({}, this.settings, options);
         }
+        // Otherwise, merge them with the defaults
         else
         {
             if( typeof options.colors === 'undefined' ) console.error( "ColorRotator.js error: No colors were specified" );
@@ -62,6 +89,9 @@
         if( $.isPlainObject( this.settings.colors ) ) this.settings.colors = this.rangeToColorArray( this.settings.colors );
     };
     
+    /**
+     * Set the CSS transition property and start the animation
+     */
     ColorRotator.prototype.init = function() 
     {
         this.$selection.css({
@@ -71,6 +101,9 @@
         this.start();
     };
     
+    /**
+     * Start rotating colors
+     */
     ColorRotator.prototype.start = function() 
     {
         var self = this;
@@ -81,11 +114,19 @@
         },this.settings.delay);
     };
     
+    /**
+     * Stop rotating colors
+     */
     ColorRotator.prototype.stop = function() 
     {
         clearInterval(this.interval);
     };
     
+    /**
+     * Convert a given range to an array of colors
+     * @param {object} range {from: Color, to: Color, count: Number}
+     * @returns {Array}
+     */
     ColorRotator.prototype.rangeToColorArray = function( range ) 
     {
         var colors = [],
@@ -104,6 +145,9 @@
         return colors;
     }
     
+    /**
+     * Rotate the color once for every property in this.settings.properties
+     */
     ColorRotator.prototype.rotateColor = function() 
     {
         var self = this;
@@ -115,6 +159,9 @@
         });
     };
     
+    /**
+     * Transition between the current background color to the next
+     */
     ColorRotator.prototype.rotateBackgroundColor = function() 
     {
         this.$selection.css({
@@ -122,12 +169,18 @@
         });
     };
     
+    /**
+     * Transition between the current box-shadow color to the next
+     */
     ColorRotator.prototype.rotateShadowColor = function() 
     {
         var newShadow = this.$selection.css('box-shadow').replace(/rgba?\([^\)]*\)/g,this.getNextColor());
         this.$selection.css({'box-shadow':newShadow});
     };
     
+    /**
+     * Transition between the current text color to the next
+     */
     ColorRotator.prototype.rotateTextColor = function() 
     {
         this.$selection.css({
@@ -135,6 +188,9 @@
         });
     };
     
+    /**
+     * Get the next color in the array, or select one randomly (if this.settings.random is set to true)
+     */
     ColorRotator.prototype.getNextColor = function() 
     {
         var color,
@@ -154,6 +210,10 @@
         return color;
     };
     
+    /**
+     * Color object
+     * @param {string} colorString Hex|RGB color string
+     */
     function Color( colorString )
     {
         if( colorString.indexOf('#') === 0 ) this.parseHex( colorString );

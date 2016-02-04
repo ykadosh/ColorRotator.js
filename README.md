@@ -22,7 +22,7 @@ The <code>color</code> option takes an array of colors in any type supported by 
 ```javascript
 // Colors array
 $('#element').colorRotator({
-    colors ['#1abc9c','#16a085','#2ecc71','#27ae60'],
+    colors: ['#1abc9c','#16a085','#2ecc71','#27ae60'],
     property: 'background'
 });
 

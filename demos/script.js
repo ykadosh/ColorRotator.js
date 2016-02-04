@@ -1,4 +1,4 @@
-jQuery(document).ready(function(){
+jQuery(document).ready(function($){
     
     // Background color rotation
     $('#bg-color-rotator').colorRotator({

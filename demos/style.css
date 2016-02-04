@@ -87,6 +87,8 @@ hr {border-color: rgba(52, 152, 219, 0.2);border-width: 2px;border-style: dashed
     text-decoration: none;
     color: #ECF0F1;
 }
+#color-rotating-navigation li a:hover {text-decoration: none; border-bottom: none;}
+
 #color-range {
     font-size: 0;
     width: 420px;

@@ -1,12 +1,3 @@
-/**
- * Package: ColorRotator
- * URL:     http://products.askupasoftware.com/color-rotator/
- * Version: 1.0.0
- * Date:    2016-02-03
- * License: GNU GENERAL PUBLIC LICENSE
- *
- * Developed by Askupa Software http://www.askupasoftware.com
- */
 (function ( $ ) {
     
     function ColorRotator( selection, options )
